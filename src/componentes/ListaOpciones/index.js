@@ -14,13 +14,9 @@ const ListaOpciones = () => {
     <div className="lista-opciones">
       <label>Equipos</label>
       <select>
-        <option>Progracion</option>
-        <option>Front End</option>
-        <option>Data Science</option>
-        <option>Devops</option>
-        <option>UX y Diseño</option>
-        <option>Movil</option>
-        <option>Innovacion y Gestion</option>
+        {equipos.map((equipo, index) => (
+          <option key={index}>{equipo}</option>
+        ))}
       </select>
     </div>
   );
