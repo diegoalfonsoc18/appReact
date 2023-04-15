@@ -11,7 +11,7 @@ const MiOrg = (props) => {
     }
 
     return <section className="orgSection">
-        <h3 className="tittle">Mi organización</h3>
+        <h3 className="tittle">     Mi organización</h3>
         <img src="/img/add.png" alt="icon" onClick={props.cambiarMostrar}/>
     </section>
 }
