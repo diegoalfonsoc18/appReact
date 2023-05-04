@@ -3,6 +3,7 @@ const CampoTexto = (props) => {
   const placeholderModificado = `${props.placeholder}...`;
 
   const manejarCambio = (e) => {
+    // eslint-disable-next-line no-undef
     actualizarValor(e.target.value);
   };
 
@@ -20,4 +21,3 @@ const CampoTexto = (props) => {
 };
 
 export default CampoTexto;
-v;
