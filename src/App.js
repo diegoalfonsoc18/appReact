@@ -53,14 +53,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* {mostrarFormulario === true? <Formulario /> : <></>} */}
       {mostrarFormulario && <Formulario />}
       <MiOrg cambiarMostrar={cambiarMostrar} />
-      <Equipo equipo="Programación" />
-      <Equipo equipo="Front End" />
-      <Equipo equipo="Data Science" />
-      <Equipo equipo="Devops" />
-      <Equipo equipo="UX y Diseño" />
+      {equipos.map((equipo) => {
+        return <Equipo datos={equipo} key={equipo.titulo} />;
+      })}
     </div>
   );
 }
