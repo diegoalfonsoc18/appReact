@@ -4,20 +4,22 @@ import CampoTexto from "../CampoTexto";
 import ListaOpciones from "../ListaOpciones";
 import Boton from "../boton";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [nombre, actualizarNombre] = useState("");
   const [puesto, actualizarPuesto] = useState("");
   const [foto, actualizarFoto] = useState("");
   const [equipo, actualizarEquipo] = useState("");
+
   const ManejarEnvio = (e) => {
     e.preventDefault();
-    console.log("Manejar envio");
+    console.log("Manejar el envio");
     let datosAEnviar = {
       nombre,
       puesto,
       foto,
       equipo,
     };
+    console.log(datosAEnviar);
   };
 
   return (
@@ -45,7 +47,11 @@ const Formulario = () => {
           valor={foto}
           actualizarValor={actualizarFoto}
         />
-        <ListaOpciones valor={equipo} actualizarEquipo={actualizarEquipo} />
+        <ListaOpciones
+          valor={equipo}
+          actualizarEquipo={actualizarEquipo}
+          equipos={props.equipos}
+        />
         <Boton>Crear</Boton>
       </form>
     </section>

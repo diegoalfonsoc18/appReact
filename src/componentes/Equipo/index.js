@@ -1,5 +1,6 @@
 import "./Equipo.css";
 
+import Colaborador from "../colaborador";
 const Equipo = (props) => {
   //Destructuracion
   const { colorPrimario, titulo } = props.datos;
@@ -13,7 +14,12 @@ const Equipo = (props) => {
   return (
     <section className="equipo" style={obj}>
       <h3 style={estiloTitulo}>{titulo}</h3>
-      <div className="colaboradores"></div>
+      <div className="colaboradores">
+        <Colaborador />
+        <Colaborador />
+        <Colaborador />
+        <Colaborador />
+      </div>
     </section>
   );
 };
