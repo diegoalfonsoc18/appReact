@@ -1,27 +1,44 @@
-import "./Equipo.css";
+import "./Equipo.css"
+import Colaborador from "../Colaborador"
+import hexToRgba from 'hex-to-rgba';
 
-import Colaborador from "../colaborador";
 const Equipo = (props) => {
-  //Destructuracion
-  const { colorPrimario, titulo } = props.datos;
+    //Destructuracion
+    const { colorPrimario, colorSecundario, titulo } = props.datos
+    const { colaboradores, eliminarColaborador, actualizarColor } = props
+    const obj = {
+        backgroundColor: hexToRgba(colorPrimario, 0.6)
+    }
 
-  const obj = {
-    backgroundColor: props.datos.colorSecundario,
-  };
 
-  const estiloTitulo = { borderColor: colorPrimario };
+    const estiloTitulo = { borderColor: colorPrimario }
 
-  return (
-    <section className="equipo" style={obj}>
-      <h3 style={estiloTitulo}>{titulo}</h3>
-      <div className="colaboradores">
-        <Colaborador />
-        <Colaborador />
-        <Colaborador />
-        <Colaborador />
-      </div>
-    </section>
-  );
-};
+    return <>
+        {
+            colaboradores.length > 0 &&
+            <section className="equipo" style={obj}>
+                <input
+                    type='color'
+                    className="input-color"
+                    value={colorPrimario}
+                    onChange={(evento) => {
+                        actualizarColor(evento.target.value, titulo)
+                    }}
+                />
+                <h3 style={estiloTitulo} >{titulo}</h3>
+                <div className="colaboradores">
+                    {
+                        colaboradores.map((colaborador, index) => <Colaborador
+                            datos={colaborador}
+                            key={index}
+                            colorPrimario={colorPrimario}
+                            eliminarColaborador={eliminarColaborador}
+                        />)
+                    }
+                </div>
+            </section>
+        }
+    </>
+}
 
-export default Equipo;
+export default Equipo
